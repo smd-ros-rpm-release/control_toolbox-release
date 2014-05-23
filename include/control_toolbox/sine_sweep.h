@@ -33,8 +33,8 @@
  *********************************************************************/
 
 
-#ifndef CONTROL_TOOLBOX__SINESWEEP_H
-#define CONTROL_TOOLBOX__SINESWEEP_H
+#ifndef CTRL_TOOLBOX_SINESWEEP_H
+#define CTRL_TOOLBOX_SINESWEEP_H
 
 #include <ros/ros.h>
 

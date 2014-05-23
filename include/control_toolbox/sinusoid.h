@@ -34,8 +34,8 @@
 
 /** \author Mrinal Kalakrishnan */
 
-#ifndef CONTROL_TOOLBOX__SINUSOID_H_
-#define CONTROL_TOOLBOX__SINUSOID_H_
+#ifndef SINUSOID_H_
+#define SINUSOID_H_
 
 #include <iostream>
 #include <tinyxml.h>

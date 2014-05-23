@@ -32,8 +32,8 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-#ifndef CONTROL_TOOLBOX__FILTERS_H
-#define CONTROL_TOOLBOX__FILTERS_H
+#ifndef FILTERS_H
+#define FILTERS_H
 
 #include <algorithm>
 

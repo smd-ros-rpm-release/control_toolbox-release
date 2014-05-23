@@ -35,7 +35,6 @@
 #include <control_toolbox/limited_proxy.h>
 #include <algorithm>
 #include <cmath>
-#include <cstdlib>
 
 namespace control_toolbox {
 
