@@ -113,6 +113,17 @@ bool Pid::init(const ros::NodeHandle &node, const bool quiet)
   nh.param("i_clamp", i_clamp, 0.0);
   gains.i_max_ = std::abs(i_clamp);
   gains.i_min_ = -std::abs(i_clamp);
+  if(nh.hasParam("i_clamp_min"))
+  {
+    nh.param("i_clamp_min", gains.i_min_, gains.i_min_); // use i_clamp_min parameter, otherwise keep -i_clamp
+    gains.i_min_ = -std::abs(gains.i_min_); // make sure the value is <= 0
+  }
+  if(nh.hasParam("i_clamp_max"))
+  {
+    nh.param("i_clamp_max", gains.i_max_, gains.i_max_); // use i_clamp_max parameter, otherwise keep i_clamp
+    gains.i_max_ = std::abs(gains.i_max_); // make sure the value is >= 0
+  }
+  
   setGains(gains);
 
   reset();
@@ -210,7 +221,7 @@ void Pid::updateDynamicReconfig()
   control_toolbox::ParametersConfig config;
 
   // Get starting values   
-  getGains(config.p_gain, config.i_gain, config.d_gain, config.i_clamp_max, config.i_clamp_min);
+  getGains(config.p, config.i, config.d, config.i_clamp_max, config.i_clamp_min);
 
   updateDynamicReconfig(config);
 }
@@ -224,9 +235,9 @@ void Pid::updateDynamicReconfig(Gains gains_config)
   control_toolbox::ParametersConfig config;
 
   // Convert to dynamic reconfigure format
-  config.p_gain = gains_config.p_gain_;
-  config.i_gain = gains_config.i_gain_;
-  config.d_gain = gains_config.d_gain_;
+  config.p = gains_config.p_gain_;
+  config.i = gains_config.i_gain_;
+  config.d = gains_config.d_gain_;
   config.i_clamp_max = gains_config.i_max_;
   config.i_clamp_min = gains_config.i_min_;
 
@@ -250,7 +261,7 @@ void Pid::dynamicReconfigCallback(control_toolbox::ParametersConfig &config, uin
   ROS_DEBUG_STREAM_NAMED("pid","Dynamics reconfigure callback recieved.");
 
   // Set the gains
-  setGains(config.p_gain, config.i_gain, config.d_gain, config.i_clamp_max, config.i_clamp_min);
+  setGains(config.p, config.i, config.d, config.i_clamp_max, config.i_clamp_min);
 }
 
 double Pid::computeCommand(double error, ros::Duration dt)
