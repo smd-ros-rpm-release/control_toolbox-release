@@ -1,3 +1,24 @@
+## control_toolbox (indigo) - 1.13.0-0
+
+The packages in the `control_toolbox` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --rosdistro indigo --track indigo control_toolbox` on `Fri, 31 Oct 2014 15:33:46 -0000`
+
+The `control_toolbox` package was released.
+
+Version of package(s) in repository `control_toolbox`:
+- upstream repository: https://github.com/ros-controls/control_toolbox.git
+- release repository: https://github.com/ros-gbp/control_toolbox-release.git
+- rosdistro version: `1.12.1-0`
+- old version: `1.12.1-0`
+- new version: `1.13.0-0`
+
+Versions of tools used:
+- bloom version: `0.5.12`
+- catkin_pkg version: `0.2.4`
+- rosdep version: `0.10.30`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.33`
+
+
 ## control_toolbox (indigo) - 1.12.1-0
 
 The packages in the `control_toolbox` repository were released into the `indigo` distro by running `/usr/bin/bloom-release control_toolbox --track indigo --rosdistro indigo` on `Thu, 12 Jun 2014 08:28:50 -0000`
